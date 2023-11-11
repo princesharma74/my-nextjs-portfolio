@@ -1,3 +1,5 @@
+import { workIcon } from "@/components/icons";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -66,4 +68,30 @@ export const siteConfig = {
 		discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev"
 	},
+	experience: [
+			{
+				title: 'Notion Campus Leader & Template Creator',
+				startDate: new Date(2022, 3, 1),
+				endDate: new Date(),
+				description: 'Organised and led workshops under the guidance of Global Community Lead to educate peers about the benefits of Notion and how to use it effectively for academic and personal organisation. Actively promoted Notion on-campus, leading to increased awareness and usage among students. Assisted in nationwide events and collaborated with students globally for community initiatives.',
+			}, 
+			{
+				title: 'Web Developer, Fakir Mohan Foundation',
+				startDate: new Date(2019, 2, 11),
+				endDate: new Date(2021, 8, 21),
+				description: 'Developed and maintained the website for the NGO, Fakir Mohan Foundation, using HTML, CSS, and JavaScript. Created a custom CMS for the website using PHP and MySQL. Designed and developed a custom web application for the NGO using ReactJS and Firebase. Created a custom dashboard for the web application using ReactJS and Firebase.',
+			},
+			{
+				title: 'Subject Matter Expert, Computer Science',
+				startDate: new Date(2020, 4, 20),
+				endDate: new Date(2022, 5, 19),
+				description: 'Assisted students with complex computer science problems, improving their understanding and academic performance. More than 400 answers posted with detailed explanation and guide.',
+			}
+	],
+
+	templates: [
+		{src: '/templates/the_task_takedown.png', alt: 'The Task Takedown'},
+		{src: '/templates/advanced_weekly_routine.png', alt: 'Advanced Weekly Routine'},
+		{src: '/templates/the_student_dashboard.png', alt: 'The Student Dashboard'},
+	],
 };

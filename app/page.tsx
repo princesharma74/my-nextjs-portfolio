@@ -1,51 +1,97 @@
+'use client'
+import Image from "next/image";
+import NextLink from "next/link";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
 import { Code } from "@nextui-org/code"
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import profilepic from '../public/prof-pic.png';
+import { color } from "framer-motion";
+import Typewriter from "@/components/typewriter";
+import Timeline from "@/components/timeline";
+import { SiteConfig } from "@/config/site";
+import { Carousel } from "flowbite-react";
+import { title } from "@/components/primitives";
+import { workIcon } from "@/components/icons";
+import ContactForm from "@/components/contactform";
 
 export default function Home() {
 	return (
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Make&nbsp;</h1>
-				<h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-				<br />
-				<h1 className={title()}>
-					websites regardless of your design experience.
+		<>
+		{/* Hero Section */}
+		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
+			<div className=''>
+				<Image
+					src={profilepic}
+					alt="Profile Picture"
+					width={200}
+					height={200}
+					className="rounded-full"
+				/>
+			</div>
+			<div className='inline-block max-w-lg text-center justify-center space-y-4'>
+				<h1 className={title()}>Hey folks, I'm a <br/>
+					<Typewriter 
+						className={title({ color: 'cyan' })} 
+						dataText='[" Developer", " Designer", " Notion Expert"]' 
+					/>
 				</h1>
-				<h2 className={subtitle({ class: "mt-4" })}>
-					Beautiful, fast and modern React UI library.
-				</h2>
+				<p>As a Notion aficionado, I've mastered the art of creating stunning templates that pack a punch and command on working with Notion API. Say goodbye to scattered notes and hello to beautifully structured databases.</p>
 			</div>
-
-			<div className="flex gap-3">
+			<div className="flex flex-wrap gap-4 items-center">
 				<Link
-					isExternal
-					href={siteConfig.links.docs}
-					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+						isExternal
+						href='#'
+						className={buttonStyles({ color: "default", radius: "full", variant: "shadow" })}
 				>
-					Documentation
+				<span className="flex items-center gap-2">View Templates</span>
 				</Link>
 				<Link
-					isExternal
-					className={buttonStyles({ variant: "bordered", radius: "full" })}
-					href={siteConfig.links.github}
+						isExternal
+						href='#'
+						className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
-					<GithubIcon size={20} />
-					GitHub
+				<span className="flex items-center gap-2">Download Resume</span>
 				</Link>
-			</div>
-
-			<div className="mt-8">
-				<Snippet hideSymbol hideCopyButton variant="flat">
-					<span>
-						Get started by editing <Code color="primary">app/page.tsx</Code>
-					</span>
-				</Snippet>
 			</div>
 		</section>
+		{/* Experience Section */}
+		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
+			<Timeline
+				title='Experience'
+				Icon={workIcon}
+				items={siteConfig.experience}
+			/>
+		</section>
+		{/* Templates */}
+		<section className="flex flex-col md:h-screen items-center justify-center gap-4 py-8 md:mx-4">
+			<h1 className={title({size: 'sm'})}>My Notion Templates</h1>
+			<Carousel 
+				className="relative h-96 overflow-hidden rounded-lg md:h-5/6"
+			>
+				{
+					siteConfig.templates.map((image, index) => (
+						<div key={index} className="relative h-5/6">
+							<h1 className={title()}>The Student Dashboard</h1>
+							<Image
+								src={image.src}
+								alt={image.alt}
+								layout="fill"
+								objectFit="cover"
+								objectPosition="top"
+								className="rounded-lg"
+							/>
+							<div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black" />
+						</div>
+					))
+				}
+			</Carousel>
+		</section>
+		{/* Contact Section */}
+		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
+			<ContactForm />
+		</section>
+		</>
 	);
 }

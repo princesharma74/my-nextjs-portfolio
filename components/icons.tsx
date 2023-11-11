@@ -1,6 +1,14 @@
 import * as React from "react";
 import { IconSvgProps } from "@/types";
 
+export const PrinceLogo = () => {
+	return (
+		<>
+		<div className="text-sm sm:text-lg font-bold">PRINCE SHARMA</div>
+		</>
+	)
+}
+
 export const Logo: React.FC<IconSvgProps> = ({
 	size = 36,
 	width,
@@ -22,6 +30,28 @@ export const Logo: React.FC<IconSvgProps> = ({
 		/>
 	</svg>
 );
+
+export const workIcon: React.FC<IconSvgProps> = ({
+	size = 24,
+	width,
+	height,
+	...props
+}) => {
+	return (
+		<svg
+			height={size || height}
+			viewBox="0 0 24 24"
+			width={size || width}
+			{...props}
+		>
+			<path
+				d="M19 8h-1V6c0-1.1-.9-2-2-2H8C6.9 4 6 4.9 6 6v2H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8 6h8v2H8V6zm10 14H6V10h12v10z"
+				fill="currentColor"
+			/>
+		</svg>
+	);
+}
+
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
 	size = 24,
