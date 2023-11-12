@@ -15,8 +15,12 @@ import { Carousel } from "flowbite-react";
 import { title } from "@/components/primitives";
 import { workIcon } from "@/components/icons";
 import ContactForm from "@/components/contactform";
+import ModalForm from "@/components/resumerequest";
+import {useTheme } from "next-themes";
 
 export default function Home() {
+	const { theme } = useTheme();
+
 	return (
 		<>
 		{/* Hero Section */}
@@ -39,22 +43,7 @@ export default function Home() {
 				</h1>
 				<p>As a Notion aficionado, I've mastered the art of creating stunning templates that pack a punch and command on working with Notion API. Say goodbye to scattered notes and hello to beautifully structured databases.</p>
 			</div>
-			<div className="flex flex-wrap gap-4 items-center">
-				<Link
-						isExternal
-						href='#'
-						className={buttonStyles({ color: "default", radius: "full", variant: "shadow" })}
-				>
-				<span className="flex items-center gap-2">View Templates</span>
-				</Link>
-				<Link
-						isExternal
-						href='#'
-						className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
-				>
-				<span className="flex items-center gap-2">Download Resume</span>
-				</Link>
-			</div>
+			<ModalForm />
 		</section>
 		{/* Experience Section */}
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
@@ -65,8 +54,9 @@ export default function Home() {
 			/>
 		</section>
 		{/* Templates */}
-		<section className="flex flex-col md:h-screen items-center justify-center gap-4 py-8 md:mx-4">
-			<h1 className={title({size: 'sm'})}>My Notion Templates</h1>
+		<section className="flex flex-col md:h-screen items-center justify-center gap-4 py-8 md:mx-4" id = 'templates'>
+			<h1 className={title({size: 'xs'})}>My Notion Templates</h1>
+			<hr className="w-1/2 mx-auto border-black dark:border-white" />
 			<Carousel 
 				className="relative h-96 overflow-hidden rounded-lg md:h-5/6"
 			>
@@ -75,7 +65,7 @@ export default function Home() {
 						<div key={index} className="relative h-5/6">
 							<h1 className={title()}>The Student Dashboard</h1>
 							<Image
-								src={image.src}
+								src={theme === "dark" ? image.src.dark : image.src.light}
 								alt={image.alt}
 								layout="fill"
 								objectFit="cover"
@@ -90,7 +80,6 @@ export default function Home() {
 		</section>
 		{/* Contact Section */}
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
-			<ContactForm />
 		</section>
 		</>
 	);

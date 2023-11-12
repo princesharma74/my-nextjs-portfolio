@@ -3,29 +3,25 @@ import { workIcon } from "@/components/icons";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "Prince Sharma",
+	description: "I'm a Student, Developer, and Notion Expert. I'm passionate about building products that make a difference.",
 	navItems: [
 		{
 			label: "Home",
 			href: "/",
 		},
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    }
+		{
+		label: "Templates",
+		href: "#templates",
+		},
+		{
+		label: "Gallery",
+		href: "#gallery",
+		},
+		{
+		label: "Message",
+		href: "#message",
+		},
 	],
 	navMenuItems: [
 		{
@@ -90,8 +86,8 @@ export const siteConfig = {
 	],
 
 	templates: [
-		{src: '/templates/the_task_takedown.png', alt: 'The Task Takedown'},
-		{src: '/templates/advanced_weekly_routine.png', alt: 'Advanced Weekly Routine'},
-		{src: '/templates/the_student_dashboard.png', alt: 'The Student Dashboard'},
+		{ src: { dark: '/templates/the_task_takedown.png', light: '/templates/the_task_takedown_light.png' }, alt: 'The Task Takedown' },
+		{ src: { dark: '/templates/advanced_weekly_routine.png', light: '/templates/advanced_weekly_routine_light.png' }, alt: 'Advanced Weekly Routine' },
+		{ src: { dark: '/templates/the_student_dashboard.png', light: '/templates/the_student_dashboard_light.png' }, alt: 'The Student Dashboard' },
 	],
 };

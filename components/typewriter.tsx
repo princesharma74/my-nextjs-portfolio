@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { useEffect, useRef } from 'react';
 
 interface TypewriterProps {
@@ -36,7 +36,7 @@ class TxtType {
 
     this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
-    var delta = 200 - Math.random() * 100;
+    var delta = 100; // Adjust the value to control the speed of the animation
 
     if (this.isDeleting) {
       delta /= 2;
@@ -69,7 +69,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ dataText, className }) => {
   }, [dataText]);
 
   return (
-      <span className={`border-r-2 ${className}`} ref={el}></span>
+    <span className={`border-r-2 ${className}`} ref={el}></span>
   );
 };
 

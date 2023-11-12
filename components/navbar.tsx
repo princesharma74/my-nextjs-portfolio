@@ -29,8 +29,11 @@ import {
 	SearchIcon,
 } from "@/components/icons";
 
-import { PrinceLogo, Logo } from "@/components/icons";
+import { Logo } from "@/components/icons";
 import { subtitle } from './primitives';
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -40,6 +43,23 @@ export const Navbar = () => {
 		"Templates",
 		"Message",
 	  ];
+
+	const { theme } = useTheme();
+
+	useEffect(() => {
+	(async function () {
+		const cal = await getCalApi();
+		cal("ui", {
+		"styles": {
+			"branding": {
+			"brandColor": theme === "dark" ? "#000000" : "#ffffff",
+			},
+		},
+		"hideEventTypeDetails": false,
+		"layout": "month_view",
+		});
+	})();
+	}, [theme]);
 
 	return (
 		<NextUINavbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
@@ -56,26 +76,29 @@ export const Navbar = () => {
 						"flex items-center gap-2",
 					)}
 				>
-					<PrinceLogo/>
+					<Logo/>
 				</Link>
 			</NavbarContent>
 
 			<NavbarContent className="hidden sm:flex gap-4" justify="center">
-				{menuItems.map((item, index) => (
+				{siteConfig.navItems.map((item, index) => (
 					<NavbarItem className='font-semibold' key={`${item}-${index}`}>
-						<Link color="foreground" href='#'>{item}</Link>
+						<Link color="foreground" href='#'>{item.label}</Link>
 					</NavbarItem>
 				))}
 			</NavbarContent>
 			<NavbarMenu>
-				{menuItems.map((item, index) => (
+				{siteConfig.navItems.map((item, index) => (
 					<NavbarMenuItem key={`${item}-${index}`}>
-						<Link className='w-full' size='lg' href='#'>{item}</Link>
+						<Link className='w-full' size='lg' href='#'>{item.label}</Link>
 					</NavbarMenuItem>
 				))}
 			</NavbarMenu>
 			<NavbarContent justify='end'>
-				<Button>Book an Appointment</Button>
+				<Button 
+					data-cal-link="princesharma74/book-an-appointment" 
+					data-cal-config='{"layout":"month_view"}'
+				>Book an Appointment</Button>
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
 					<GithubIcon className="text-default-500" />
 				</Link>
