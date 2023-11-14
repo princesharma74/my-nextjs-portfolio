@@ -60,25 +60,6 @@ export default function Home() {
 			/>
 		</section>
 
-		{/* Contact Section */}
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
-			<h1 className={title({size: 'xs'})}>Projects</h1>
-			<hr className="w-1/2 mx-auto border-black dark:border-white mb-5" />
-			<div className="flex flex-col md:flex-row items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
-			{
-				siteConfig.projects.map((project, index) => (
-					siteConfig.projects.map((project, index) => (
-						<Card key={index} href="#" className="max-w-sm h-96">
-							<h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.title}</h5>
-							<p className="font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
-						</Card>
-					))
-				))
-			}
-			</div>
-
-		</section>
-
 		{/* Templates */}
 		<section className="flex flex-col h-screen items-center justify-center gap-4 py-8 md:mx-4" id = 'templates'>
 			<h1 className={title({size: 'xs'})}>My Notion Templates</h1>
