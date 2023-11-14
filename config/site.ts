@@ -90,4 +90,22 @@ export const siteConfig = {
 		{ src: { dark: '/templates/advanced_weekly_routine.png', light: '/templates/advanced_weekly_routine_light.png' }, alt: 'Advanced Weekly Routine' },
 		{ src: { dark: '/templates/the_student_dashboard.png', light: '/templates/the_student_dashboard_light.png' }, alt: 'The Student Dashboard' },
 	],
+
+	projects: [
+		{ 
+			title: 'Coding Profiles Tracker', 
+			description: 'Automated Python script to track coding proles (LeetCode, Codeforces, CodeChef) for 42 friends, utilizing Selenium and Django, with nightly updates on Alibaba Cloud for 99.99% uptime.', 
+			link: '',
+		 }, 
+		{ 
+			title: 'CodeBuddy - A Social Coding Platform', 
+			description: 'Developed a social coding platform using ReactJS, Firebase, and TailwindCSS, with features like real-time chat, code editor, and user profiles.',
+			link: '',
+		},
+		{ 
+			title: 'Certificate Generation Tool',
+			description: 'Developed an automated certicate generation tool in Java and JavaFX. Streamlined the certicate creation process from CSV data, reducing manual eort by 80%. Designed a user-friendly GUI for easy and intuitive use, resulting in a 50% reduction in training time for new users.',
+			link: '',
+		}
+	]
 };

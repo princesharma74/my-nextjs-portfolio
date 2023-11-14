@@ -1,4 +1,5 @@
 import React, { ElementType } from 'react';
+import { title as titleStyles } from './primitives';
 
 interface ListItemProps {
   title: string;
@@ -69,7 +70,8 @@ interface TimelineProps {
 const Timeline: React.FC<TimelineProps> = ({ title, Icon, items }) => {
   return (
     <div className="relative">
-      <h2 className="mb-6 text-3xl font-semibold text-gray-900 dark:text-white">{title}</h2>
+			<h1 className={`flex justify-center mb-2 ${titleStyles({size: 'xs'})}`}>{title}</h1>
+			<hr className="w-1/2 mx-auto border-black dark:border-white mb-5" />
       <List 
         items={items}
         Icon = {Icon}

@@ -14,12 +14,25 @@ import { SiteConfig } from "@/config/site";
 import { Carousel } from "flowbite-react";
 import { title } from "@/components/primitives";
 import { workIcon } from "@/components/icons";
-import ContactForm from "@/components/contactform";
-import ModalForm from "@/components/resumerequest";
+import ModalForm from "@/components/modalform";
+
 import {useTheme } from "next-themes";
+import { useEffect, useState } from 'react';
+
+import { Card } from "flowbite-react";
+import ContactUs from "@/components/contactme";
 
 export default function Home() {
-	const { theme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+    const { theme } = useTheme();
+
+    // When component is mounted, set the mounted state to true
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Prevent rendering until after the theme has been resolved
+    if (!mounted) return null;
 
 	return (
 		<>
@@ -53,34 +66,48 @@ export default function Home() {
 				items={siteConfig.experience}
 			/>
 		</section>
+
+		{/* Contact Section */}
+		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
+			<h1 className={title({size: 'xs'})}>Projects</h1>
+			<hr className="w-1/2 mx-auto border-black dark:border-white mb-5" />
+			<div className="flex flex-col md:flex-row items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
+			{
+				siteConfig.projects.map((project, index) => (
+				<Card href="#" className="max-w-sm h-96">
+						<h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.title}</h5>
+						<p className="font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
+				</Card>
+				))
+			}
+			</div>
+
+		</section>
+
 		{/* Templates */}
-		<section className="flex flex-col md:h-screen items-center justify-center gap-4 py-8 md:mx-4" id = 'templates'>
+		<section className="flex flex-col h-screen items-center justify-center gap-4 py-8 md:mx-4" id = 'templates'>
 			<h1 className={title({size: 'xs'})}>My Notion Templates</h1>
 			<hr className="w-1/2 mx-auto border-black dark:border-white" />
 			<Carousel 
-				className="relative h-96 overflow-hidden rounded-lg md:h-5/6"
+				className="relative overflow-hidden rounded-lg h-full"
 			>
 				{
 					siteConfig.templates.map((image, index) => (
-						<div key={index} className="relative h-5/6">
-							<h1 className={title()}>The Student Dashboard</h1>
-							<Image
-								src={theme === "dark" ? image.src.dark : image.src.light}
-								alt={image.alt}
-								layout="fill"
-								objectFit="cover"
-								objectPosition="top"
-								className="rounded-lg"
-							/>
-							<div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black" />
-						</div>
+							<div key={index} className="relative h-full">
+								<Image
+									src={theme === "dark" ? image.src.dark : image.src.light}
+									alt={image.alt}
+									layout="fill"
+									objectFit="cover"
+									objectPosition="top"
+									className="rounded-lg"
+								/>
+							</div>
 					))
 				}
 			</Carousel>
 		</section>
-		{/* Contact Section */}
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
-		</section>
+		<ContactUs/>
 		</>
 	);
 }
