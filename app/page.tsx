@@ -1,16 +1,9 @@
 'use client'
 import Image from "next/image";
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import profilepic from '../public/prof-pic.png';
-import { color } from "framer-motion";
 import Typewriter from "@/components/typewriter";
 import Timeline from "@/components/timeline";
-import { SiteConfig } from "@/config/site";
 import { Carousel } from "flowbite-react";
 import { title } from "@/components/primitives";
 import { workIcon } from "@/components/icons";
@@ -48,13 +41,13 @@ export default function Home() {
 				/>
 			</div>
 			<div className='inline-block max-w-lg text-center justify-center space-y-4'>
-				<h1 className={title()}>Hey folks, I'm a <br/>
+					<h1 className={title()}>Hey folks, I&apos;m a <br/>
 					<Typewriter 
 						className={title({ color: 'cyan' })} 
 						dataText='[" Developer", " Designer", " Notion Expert"]' 
 					/>
 				</h1>
-				<p>As a Notion aficionado, I've mastered the art of creating stunning templates that pack a punch and command on working with Notion API. Say goodbye to scattered notes and hello to beautifully structured databases.</p>
+				<p>As a Notion aficionado, I&apos;ve mastered the art of creating stunning templates that pack a punch and command on working with Notion API. Say goodbye to scattered notes and hello to beautifully structured databases.</p>
 			</div>
 			<ModalForm />
 		</section>
@@ -74,10 +67,12 @@ export default function Home() {
 			<div className="flex flex-col md:flex-row items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
 			{
 				siteConfig.projects.map((project, index) => (
-				<Card href="#" className="max-w-sm h-96">
-						<h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.title}</h5>
-						<p className="font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
-				</Card>
+					siteConfig.projects.map((project, index) => (
+						<Card key={index} href="#" className="max-w-sm h-96">
+							<h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.title}</h5>
+							<p className="font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
+						</Card>
+					))
 				))
 			}
 			</div>
