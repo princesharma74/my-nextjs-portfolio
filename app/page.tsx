@@ -60,7 +60,7 @@ export default function Home() {
 			/>
 		</section>
 
-		{/* Contact Section */}
+		{/* Project Section
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:mx-4 md:py-10">
 			<h1 className={title({size: 'xs'})}>Projects</h1>
 			<hr className="w-1/2 mx-auto border-black dark:border-white mb-5" />
@@ -78,7 +78,8 @@ export default function Home() {
 			</div>
 
 		</section>
-
+  		*/}
+			
 		{/* Templates */}
 		<section className="flex flex-col h-screen items-center justify-center gap-4 py-8 md:mx-4" id = 'templates'>
 			<h1 className={title({size: 'xs'})}>My Notion Templates</h1>
