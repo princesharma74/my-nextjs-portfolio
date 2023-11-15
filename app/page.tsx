@@ -91,7 +91,10 @@ export default function Home() {
 				{
 					siteConfig.templates.map((image, index) => (
 							<div key={index} className="relative h-full">
-								<Link href={image.link}>
+								<Link 
+									href={image.link}
+									target="_blank"
+								>
 									<Image
 										src={theme === "dark" ? image.src.dark : image.src.light}
 										alt={image.alt}

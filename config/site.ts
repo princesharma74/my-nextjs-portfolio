@@ -94,7 +94,7 @@ export const siteConfig = {
 			}, 
 			
 			alt: 'The Task Takedown',
-			link: 'princesharma74.gumroad.com/l/gqeuaq'
+			link: 'https://princesharma74.gumroad.com/l/gqeuaq'
 		},
 		{ 
 			src: 
@@ -104,7 +104,7 @@ export const siteConfig = {
 			}, 
 			
 			alt: 'Advanced Weekly Routine',
-			link: 'princesharma74.gumroad.com/l/dhnazh'
+			link: 'https://princesharma74.gumroad.com/l/dhnazh'
 		},
 		{
 			src: 
@@ -113,7 +113,7 @@ export const siteConfig = {
 				light: '/templates/the_student_dashboard_light.png' 
 			}, 
 			alt: 'The Student Dashboard',
-			link: 'princesharma74.gumroad.com/l/macpc'
+			link: 'https://princesharma74.gumroad.com/l/macpc'
 		},
 	],
 
