@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 
 import { Card } from "flowbite-react";
 import ContactUs from "@/components/contactme";
+import Link from "next/link";
 
 export default function Home() {
 	const [mounted, setMounted] = useState(false);
@@ -90,14 +91,16 @@ export default function Home() {
 				{
 					siteConfig.templates.map((image, index) => (
 							<div key={index} className="relative h-full">
-								<Image
-									src={theme === "dark" ? image.src.dark : image.src.light}
-									alt={image.alt}
-									layout="fill"
-									objectFit="cover"
-									objectPosition="top"
-									className="rounded-lg"
-								/>
+								<Link href={image.link}>
+									<Image
+										src={theme === "dark" ? image.src.dark : image.src.light}
+										alt={image.alt}
+										layout="fill"
+										objectFit="cover"
+										objectPosition="top"
+										className="rounded-lg"
+									/>
+								</Link>
 							</div>
 					))
 				}

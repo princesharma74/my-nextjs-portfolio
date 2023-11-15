@@ -86,9 +86,35 @@ export const siteConfig = {
 	],
 
 	templates: [
-		{ src: { dark: '/templates/the_task_takedown.png', light: '/templates/the_task_takedown_light.png' }, alt: 'The Task Takedown' },
-		{ src: { dark: '/templates/advanced_weekly_routine.png', light: '/templates/advanced_weekly_routine_light.png' }, alt: 'Advanced Weekly Routine' },
-		{ src: { dark: '/templates/the_student_dashboard.png', light: '/templates/the_student_dashboard_light.png' }, alt: 'The Student Dashboard' },
+		{ 
+			src: 
+			{ 
+				dark: '/templates/the_task_takedown.png', 
+				light: '/templates/the_task_takedown_light.png' 
+			}, 
+			
+			alt: 'The Task Takedown',
+			link: 'princesharma74.gumroad.com/l/gqeuaq'
+		},
+		{ 
+			src: 
+			{ 
+				dark: '/templates/advanced_weekly_routine.png', 
+				light: '/templates/advanced_weekly_routine_light.png' 
+			}, 
+			
+			alt: 'Advanced Weekly Routine',
+			link: 'princesharma74.gumroad.com/l/dhnazh'
+		},
+		{
+			src: 
+			{ 
+				dark: '/templates/the_student_dashboard.png', 
+				light: '/templates/the_student_dashboard_light.png' 
+			}, 
+			alt: 'The Student Dashboard',
+			link: 'princesharma74.gumroad.com/l/macpc'
+		},
 	],
 
 	projects: [
