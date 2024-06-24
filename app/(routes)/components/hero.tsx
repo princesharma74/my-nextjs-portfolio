@@ -40,10 +40,10 @@ const Hero : React.FC<HeroProps> = ({
               </div>
               <div className='inline-block max-w-lg text-center justify-center space-y-4'>
                   <h1 className={title()}>Hey folks, I&apos;m a <br/>
-                  <Typewriter 
+                  {/* <Typewriter 
                     className={title({ color: 'cyan'})}
                     dataText={roles}
-                  />
+                  /> */}
                 </h1>
                 <p></p>
                 <p>{introduction}</p>

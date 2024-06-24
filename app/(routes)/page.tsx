@@ -28,7 +28,7 @@ export default async function Home() {
   }
 
   const me = await pb.collection('users').getOne(recordId, {
-    expand: 'projects, projects.skills, education, skills.title, experiences, publications, socials, roles_and_responsibilities, templates'
+    expand: 'projects, projects.skills, education, skills.title, experiences, publications, socials, roles_and_responsibility, templates'
   })
 
 

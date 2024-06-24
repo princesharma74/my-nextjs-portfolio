@@ -8,12 +8,12 @@ const Navbar = () => {
     const {isOpen, onClose, onOpen} = useContactState();
     return ( 
             <div className="flex h-16 items-center justify-between px-4">
-                <div className="font-bold">PRINCE SHARMA</div>
+                <div className="font-bold text-2xl">PRINCE</div>
                 <div>
                     <MainNav className="mx-6"/>
                 </div>
                 <div>
-                    <Button variant={"outline"} className="rounded-full" onClick={onOpen}>Contact me</Button>
+                    {/* <Button variant={"outline"} className="rounded-full" onClick={onOpen}>Contact me</Button> */}
                     <ModeToggle/>
                 </div>
             </div>
