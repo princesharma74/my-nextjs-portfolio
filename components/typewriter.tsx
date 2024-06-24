@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 
 interface TypewriterProps {
-  dataText: string;
+  dataText: string[];
   className?: string;
 }
 
@@ -63,7 +63,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ dataText, className }) => {
   useEffect(() => {
     if (el.current) {
       setTimeout(() => {
-        new TxtType(el.current!, JSON.parse(dataText), 2000);
+        new TxtType(el.current!, dataText, 2000);
       }, 0);
     }
   }, [dataText]);
