@@ -20,7 +20,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
     return null
   }
   return (
-    <Container className="w-full py-12 md:py-24 lg:py-32">
+    <Container className="w-full py-12 md:py-24 lg:py-32" id="experiences">
       <Link href="/#experiences"></Link>
       <div className="container px-4 md:px-6">
         <div className="space-y-4 md:space-y-6">

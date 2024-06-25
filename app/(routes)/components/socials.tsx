@@ -42,7 +42,7 @@ export const Socials : React.FC<SocialsProps>= ({
   }
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted" id="socials">
       <Link href="#socials"></Link>
       <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
         <div className="space-y-3">

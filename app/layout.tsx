@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ModalProvider/>
+          <ModalProvider/>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

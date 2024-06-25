@@ -14,7 +14,7 @@ export const Projects: React.FC<ProjectsProps> = ({
   data
 }) => {
   return (
-    <Container className="bg-muted p-6">
+    <Container className="bg-muted p-6" id="projects">
       <Link href="/#projects"></Link>
       <div className="w-full max-w-6xl mx-auto py-12 md:py-16">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">

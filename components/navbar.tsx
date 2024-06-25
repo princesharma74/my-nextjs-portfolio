@@ -3,18 +3,23 @@ import { MainNav } from "@/components/main-nav";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "./ui/button";
 import { useContactState } from "@/hooks/use-contact-state";
+import { MobileNav } from "./mobile-nav";
 
 const Navbar = () => {
-    const {isOpen, onClose, onOpen} = useContactState();
     return ( 
             <div className="flex h-16 items-center justify-between px-4">
                 <div className="font-bold text-2xl">PRINCE</div>
                 <div>
                     <MainNav className="mx-6"/>
                 </div>
-                <div>
+                <div className="flex gap-2">
                     {/* <Button variant={"outline"} className="rounded-full" onClick={onOpen}>Contact me</Button> */}
-                    <ModeToggle/>
+                    <div>
+                        <MobileNav/>
+                    </div>
+                    <div>
+                        <ModeToggle/>
+                    </div>
                 </div>
             </div>
     );

@@ -3,33 +3,19 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link";
 import { usePathname } from "next/navigation"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Button } from "./ui/button";
+import { navItems } from "@/config/site"
 
 export function MainNav({
     className, 
 }: React.HTMLAttributes<HTMLElement>){
     const pathName = usePathname();
-    const routes = [
-        {
-            href: `#socials`,
-            label: "Socials", 
-            active: pathName === `#socials`,
-        },
-        {
-            href: `#projects`,
-            label: "Projects", 
-            active: pathName === `#projects`,
-        },
-        {
-            href: `#templates`,
-            label: "Templates", 
-            active: pathName === `#templates`,
-        },
-    ];
+    const routes = navItems.map((route) => ({
+        ...route,
+        active: pathName === route.href,
+    }));
 
     return (
-        <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
+        <nav className={cn("hidden md:flex items-center space-x-4 lg:space-x-6", className)}>
             {routes.map((route) => (
                 <Link
                     key={route.href}
