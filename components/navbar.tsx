@@ -15,10 +15,10 @@ const Navbar = () => {
                 <div className="flex gap-2">
                     {/* <Button variant={"outline"} className="rounded-full" onClick={onOpen}>Contact me</Button> */}
                     <div>
-                        <MobileNav/>
+                        <ModeToggle/>
                     </div>
                     <div>
-                        <ModeToggle/>
+                        <MobileNav/>
                     </div>
                 </div>
             </div>
