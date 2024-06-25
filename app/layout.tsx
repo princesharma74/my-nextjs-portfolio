@@ -22,7 +22,7 @@ export default function RootLayout({
           <ModalProvider/>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >
