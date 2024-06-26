@@ -9,7 +9,7 @@ export async function downloadFile(downloadurl : string){
             responseType: "blob", // Important for binary data
         });
 
-        const fileName = 'prince_sharma_resume'
+        const fileName = 'prince_sharma_resume.pdf'
 
         // Create a temporary anchor element to trigger the download
         const url = window.URL.createObjectURL(new Blob([response.data]));
