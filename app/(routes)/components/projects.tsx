@@ -72,8 +72,8 @@ export const Projects: React.FC<ProjectsProps> = ({
               ))
             }
         </CarouselContent>
-          <CarouselPrevious className="hidden md:block" />
-          <CarouselNext className="hidden md:block" />
+          <CarouselPrevious className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"/>
+          <CarouselNext className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"/>
         </Carousel>
       </div>
     </Container>

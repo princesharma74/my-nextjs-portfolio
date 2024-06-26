@@ -51,7 +51,7 @@ export const Socials : React.FC<SocialsProps>= ({
             Follow me on your favorite platforms to stay up-to-date with my latest updates and projects.
           </p>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+        <div className="flex flex-wrap gap-5 items-center justify-center">
           {data.map((social) => (
             <Link
               key = {social.id}

@@ -48,10 +48,10 @@ const Hero : React.FC<HeroProps> = ({
                 <p></p>
                 <p>{introduction}</p>
               </div>
-              <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-wrap gap-2 items-center">
                 <Button variant={"secondary"} className="rounded-full" data-cal-namespace="" data-cal-link="princesharma74/book-an-appointment" data-cal-config='{"layout":"month_view"}'
                 >
-                <span className="flex items-center gap-2">Book an Appointment</span>
+                <span className="flex items-center gap-2">Contact me</span>
                 </Button>
                 <Button className="rounded-full" onClick={() => downloadFile(resume)}>
                   Download Resume

@@ -47,7 +47,7 @@ export default async function Home() {
       description: project.description,
       skills: project.expand && project.expand.skills.map(skill => skill.title),
       github: project.github,
-      website: project.hosted_link,
+      hosted_link: project.hosted_link,
       images: project.images.map(image => {
         return `${process.env.POCKETBASE_URL}/api/files/${project.collectionName}/${project.id}/${image}`
       })

@@ -19,6 +19,15 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
   if(!isMounted){
     return null
   }
+
+  const onChange = (experienceID: string) =>{
+    if(openItemId !== experienceID){
+      setOpenItemId(experienceID)
+    }
+    else{
+      setOpenItemId("");
+    }
+  };
   return (
     <Container className="w-full py-12 md:py-24 lg:py-32" id="experiences">
       <Link href="/#experiences"></Link>
@@ -36,9 +45,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
                 key={experience.id} 
                 className="rounded-lg border bg-background shadow-sm"
                 open={experience.id === openItemId}
-                onOpenChange={()=>(
-                  setOpenItemId(experience.id)
-                )}
+                onOpenChange={() => onChange(experience.id)}
               >
                 <CollapsibleTrigger className="w-full flex items-center[&[data-state=open]>svg]:rotate-90">
                   <div className="flex items-center justify-between gap-4 px-6 py-4">
