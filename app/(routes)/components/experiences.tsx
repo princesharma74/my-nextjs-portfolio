@@ -4,6 +4,7 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/component
 import { Experience } from "@/types"
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { format } from 'date-fns';
 interface ExperienceProps{
   data: Experience[]
 }
@@ -50,7 +51,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
                 <CollapsibleTrigger className="w-full flex items-center[&[data-state=open]>svg]:rotate-90">
                   <div className="flex items-center justify-between gap-4 px-6 py-4">
                     <h3 className="text-lg font-semibold text-left">{experience.title}</h3>
-                    <p className="text-sm text-muted-foreground text-right">{`${experience.company} | ${experience.start_time.getFullYear()} - ${experience.end_time && experience.end_time.getFullYear() ? experience.end_time.getFullYear() : "Present"}`}</p>
+                    <p className="text-sm text-muted-foreground text-right">{`${experience.company} | ${format(experience.start_time, "MMM yyyy")} - ${experience.end_time && experience.end_time.getFullYear() ? format(experience.end_time, "MMM yyyy") : "Present"}`}</p>
                     <ChevronDownIcon className="h-5 w-5 transition-transform" />
                   </div>
                 </CollapsibleTrigger>

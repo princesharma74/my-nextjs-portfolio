@@ -64,6 +64,16 @@ export default async function Home() {
       company: experience.company
     }
   })
+  // sort experiences based on end_time and keep the latest one at the top. Also end_time with Invalid Date should be at at the top
+  experiences.sort((a : any, b : any) => {
+    if (a.end_time.toString() === 'Invalid Date') {
+      return -1
+    }
+    if (b.end_time.toString() === 'Invalid Date') {
+      return 1
+    }
+    return b.end_time.getTime() - a.end_time.getTime()
+  })
 
 
   const socials = me.expand && me.expand.socials.map(( social : SocialBase ) => {
