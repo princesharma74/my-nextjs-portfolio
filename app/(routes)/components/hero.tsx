@@ -7,9 +7,11 @@ import Image from 'next/image';
 import Link from "next/link";
 import axios from "axios"
 import { useToast } from "@/components/ui/use-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCalApi } from "@calcom/embed-react";
 import { downloadFile } from "@/lib/actions";
+import { useDownloadState } from "@/hooks/use-download-state";
+import { set } from "date-fns";
 
 interface HeroProps {
     data: any
@@ -19,12 +21,21 @@ const Hero : React.FC<HeroProps> = ({
     data: {avatar, roles, introduction, name, resume}
 }) => {
 
+  const [loading, setLoading] = useState(false);
+  const { isOpen, onOpen, onClose } = useDownloadState();
+
   useEffect(()=>{
 	  (async function () {
 		const cal = await getCalApi({});
 		cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
 	  })();
 	}, [])
+  
+  const onDownload = async () => {
+    setLoading(true);
+    await downloadFile(resume);
+    setLoading(false);
+  }
 
     return ( 
       <main>
@@ -53,7 +64,7 @@ const Hero : React.FC<HeroProps> = ({
                 >
                 <span className="flex items-center gap-2">Contact me</span>
                 </Button>
-                <Button className="rounded-full" onClick={() => downloadFile(resume)}>
+                <Button className="rounded-full" disabled={loading} onClick={onDownload}>
                   Download Resume
                 </Button>
               </div>
