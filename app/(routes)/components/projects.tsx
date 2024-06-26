@@ -5,6 +5,7 @@ import { Project } from "@/types"
 import Container from "@/components/container"
 import { SocialIcon } from "react-social-icons"
 import { Github } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 interface ProjectsProps{
   data: Project[]
@@ -43,21 +44,31 @@ export const Projects: React.FC<ProjectsProps> = ({
                   <div className="flex-1 grid gap-2">
                     <h3 className="text-xl font-bold">{project.title}</h3>
                     <p className="text-muted-foreground">{project.description}</p>
-                    <div className="flex flex-col gap-2">
-                      <div>
-                        <Link
-                          href={project.hosted_link ? project.hosted_link : "/"}
-                          className="inline-flex items-center gap-1 font-medium text-primary hover:text-primary-foreground transition-colors"
-                          prefetch={false}
-                        >
-                          <ArrowRightIcon className="w-4 h-4" />
-                          View Website
-                        </Link>
-                      </div>
+                    <div>
+                      {
+                        project.skills.map(skill => (
+                          <Badge key={skill} className="mr-2">{skill}</Badge>
+                        ))
+                      }
+                    </div>
+                    <div className="flex flex-col gap-2 pt-8">
+                      {
+                        project.hosted_link &&
+                        <div>
+                          <Link
+                            href={project.hosted_link ? project.hosted_link : "/"}
+                            className="inline-flex items-center gap-1 font-medium text-primary hover:text-slate-400 transition-colors"
+                            prefetch={false}
+                          >
+                            <ArrowRightIcon className="w-4 h-4" />
+                            View Website
+                          </Link>
+                        </div>
+                      }
                       <div>
                         <Link
                           href={project.github}
-                          className="inline-flex items-center gap-1 font-medium text-primary hover:text-primary-foreground transition-colors"
+                          className="inline-flex items-center gap-1 font-medium text-primary hover:text-slate-400 transition-colors"
                           prefetch={false}
                         >
                           <Github/>
