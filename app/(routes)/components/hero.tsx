@@ -65,7 +65,7 @@ const Hero : React.FC<HeroProps> = ({
                 <span className="flex items-center gap-2">Contact me</span>
                 </Button>
                 <Button className="rounded-full" disabled={loading} onClick={onDownload}>
-                  Download Resume
+                  {loading ? 'Downloading...' : 'Download Resume'}
                 </Button>
               </div>
             </Container>
