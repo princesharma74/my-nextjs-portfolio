@@ -37,7 +37,7 @@ export const Templates: React.FC<TemplatesProps> = ({ data }) => {
               className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
             >
               <Link
-                href={template.purchase_link}
+                href={template.url}
                 className="absolute inset-0 z-10"
                 prefetch={false}
               >
