@@ -48,7 +48,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
                 open={experience.id === openItemId}
                 onOpenChange={() => onChange(experience.id)}
               >
-                <CollapsibleTrigger className="flex items-center justify-between gap-4 px-4 py-2 [&[data-state=open]>svg]:rotate-90">
+                <CollapsibleTrigger className="w-full flex items-center justify-between gap-4 px-4 py-2 [&[data-state=open]>svg]:rotate-90">
                   <div className="flex items-center justify-between gap-4 px-6 py-4">
                       <h3 className="text-lg font-semibold text-left">{experience.title}</h3>
                       <p className="text-sm text-muted-foreground text-right">{`${experience.company} | ${format(experience.start_time, "MMM yyyy")} - ${experience.end_time && experience.end_time.getFullYear() ? format(experience.end_time, "MMM yyyy") : "Present"}`}</p>
