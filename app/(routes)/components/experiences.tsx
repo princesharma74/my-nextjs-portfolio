@@ -48,13 +48,13 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
                 open={experience.id === openItemId}
                 onOpenChange={() => onChange(experience.id)}
               >
-                <CollapsibleTrigger className="w-full flex items-center[&[data-state=open]>svg]:rotate-90">
+                <CollapsibleTrigger className="flex items-center justify-between gap-4 px-4 py-2 [&[data-state=open]>svg]:rotate-90">
                   <div className="flex items-center justify-between gap-4 px-6 py-4">
-                    <h3 className="text-lg font-semibold text-left">{experience.title}</h3>
-                    <p className="text-sm text-muted-foreground text-right">{`${experience.company} | ${format(experience.start_time, "MMM yyyy")} - ${experience.end_time && experience.end_time.getFullYear() ? format(experience.end_time, "MMM yyyy") : "Present"}`}</p>
-                    <ChevronDownIcon className="h-5 w-5 transition-transform" />
+                      <h3 className="text-lg font-semibold text-left">{experience.title}</h3>
+                      <p className="text-sm text-muted-foreground text-right">{`${experience.company} | ${format(experience.start_time, "MMM yyyy")} - ${experience.end_time && experience.end_time.getFullYear() ? format(experience.end_time, "MMM yyyy") : "Present"}`}</p>
                   </div>
-                </CollapsibleTrigger>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform" />
+              </CollapsibleTrigger>
                 <CollapsibleContent className="px-6 pb-4">
                   <div className="space-y-2">
                     <p>As a {experience.title} at {experience.company}, I was responsible for:</p>
@@ -72,16 +72,10 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
     </Container>
   )
 }
-type ChevronDownIconProps = {
-  className?: string
-}
-
-function ChevronDownIcon({
-  className
-} : ChevronDownIconProps) {
+function ChevronDownIcon(props : any) {
   return (
     <svg
-      className={className}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
