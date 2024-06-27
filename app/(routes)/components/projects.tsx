@@ -7,6 +7,8 @@ import { SocialIcon } from "react-social-icons"
 import { Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
+export const dynamic = 'force-dynamic';
+
 interface ProjectsProps{
   data: Project[]
 }

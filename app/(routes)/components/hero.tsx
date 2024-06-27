@@ -13,6 +13,8 @@ import { downloadFile } from "@/lib/actions";
 import { useDownloadState } from "@/hooks/use-download-state";
 import { set } from "date-fns";
 
+export const dynamic = 'force-dynamic';
+
 interface HeroProps {
     data: any
 }
