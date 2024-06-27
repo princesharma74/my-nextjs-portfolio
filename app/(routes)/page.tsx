@@ -11,6 +11,9 @@ import { Socials } from './components/socials';
 import { ExperienceSection } from './components/experiences';
 import { Projects } from './components/projects';
 
+// to avoid caching...
+export const dynamic = 'force-dynamic';
+
 const username = process.env.USERNAME
 const password = process.env.PASSWORD
 const recordId = process.env.RECORD_ID
