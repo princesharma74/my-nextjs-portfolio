@@ -13,8 +13,8 @@ import { Projects } from './components/projects';
 import { PublicationSection } from './components/publications';
 
 // to avoid caching...
-export const dynamic = 'force-dynamic';
-export const revalidate = 60;
+// export const dynamic = 'force-dynamic';
+// export const revalidate = 60;
 
 const username = process.env.USERNAME
 const password = process.env.PASSWORD

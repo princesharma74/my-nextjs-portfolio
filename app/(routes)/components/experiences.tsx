@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { format } from 'date-fns';
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 interface ExperienceProps{
   data: Experience[]
 }
