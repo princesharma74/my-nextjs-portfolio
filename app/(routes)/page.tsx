@@ -13,6 +13,7 @@ import { Projects } from './components/projects';
 
 // to avoid caching...
 export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 const username = process.env.USERNAME
 const password = process.env.PASSWORD

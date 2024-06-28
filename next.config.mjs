@@ -4,6 +4,12 @@ const nextConfig = {
         domains: [
             'hide-rest.pockethost.io'
         ]
+    },
+    experimental: {
+        staleTimes: {
+          dynamic: 30,
+          static: 180,
+        },
     }
 };
 

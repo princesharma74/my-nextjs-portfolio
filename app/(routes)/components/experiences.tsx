@@ -57,12 +57,12 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({
                   </div>
                   <ChevronDownIcon className="h-5 w-5 transition-transform" />
               </CollapsibleTrigger>
-                <CollapsibleContent className="px-6 pb-4">
+                <CollapsibleContent className="mx-5 px-6 pb-4">
                   <div className="space-y-2">
                     <p>As a {experience.title} at {experience.company}, I was responsible for:</p>
-                    <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">{experience.description}</ul>
+                    <ul className="list-disc space-y-1 text-sm text-muted-foreground">{experience.description}</ul>
                     <p>Key achievements:</p>
-                    <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">{experience.description}</ul>
+                    <ul className="list-disc space-y-1 text-sm text-muted-foreground">{experience.description}</ul>
                   </div>
                 </CollapsibleContent>
               </Collapsible>
