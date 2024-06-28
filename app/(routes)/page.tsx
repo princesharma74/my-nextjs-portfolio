@@ -63,7 +63,8 @@ export default async function Home() {
     return {
       id: experience.id,
       title: experience.title,
-      description: experience.description,
+      responsibility: experience.responsibility,
+      achievements: experience.achievements,
       start_time: new Date(experience.start_time),
       end_time: new Date(experience.end_time),
       company: experience.company

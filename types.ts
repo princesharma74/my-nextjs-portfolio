@@ -45,7 +45,8 @@ export interface ExperienceBase {
   collectionId: string,
   collectionName: string,
   company: string,
-  description: string,
+  responsibility: string,
+  achievements: string,
   end_time: Date,
   id: string
   start_time: Date,
@@ -58,7 +59,8 @@ export interface Experience {
   collectionId: string,
   collectionName: string,
   company: string,
-  description: string,
+  responsibility: string,
+  achievements: string,
   end_time: Date,
   id: string
   start_time: Date,
