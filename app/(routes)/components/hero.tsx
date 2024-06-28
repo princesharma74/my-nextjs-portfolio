@@ -58,8 +58,7 @@ const Hero : React.FC<HeroProps> = ({
                     dataText={roles}
                   />
                 </h1>
-                <p></p>
-                <p>{introduction}</p>
+                <p className="px-6 md:px-0">{introduction}</p>
               </div>
               <div className="flex flex-wrap gap-2 items-center">
                 <Button variant={"secondary"} className="rounded-full" data-cal-namespace="" data-cal-link="princesharma74/book-an-appointment" data-cal-config='{"layout":"month_view"}'

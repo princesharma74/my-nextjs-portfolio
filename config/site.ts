@@ -1,17 +1,22 @@
 export const navItems = [
       {
+          href: `#projects`,
+          label: "Projects", 
+          active: false
+      },
+      {
           href: `#experiences`,
           label: "Experiences", 
           active: false
       },
       {
-          href: `#templates`,
-          label: "Templates", 
+          href: `#publications`,
+          label: "Publications", 
           active: false
       },
       {
-          href: `#projects`,
-          label: "Projects", 
+          href: `#templates`,
+          label: "Templates", 
           active: false
       },
       {

@@ -8,7 +8,7 @@ import { MobileNav } from "./mobile-nav";
 const Navbar = () => {
     return ( 
             <div className="flex h-16 items-center justify-between px-4">
-                <div className="font-bold text-2xl">PRINCE</div>
+                <div className="font-bold text-2xl mx-4">PRINCE</div>
                 <div>
                     <MainNav className="mx-6"/>
                 </div>
