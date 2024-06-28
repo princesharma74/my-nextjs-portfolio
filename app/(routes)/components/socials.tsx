@@ -11,6 +11,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
 
+export const dynamic = 'force-dynamic';
+
 /** Add fonts into your Next.js project:
 
 import { Inter } from 'next/font/google'

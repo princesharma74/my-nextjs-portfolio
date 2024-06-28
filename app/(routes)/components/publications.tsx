@@ -27,6 +27,7 @@ import { Publication } from "@/types"
 import { format } from "date-fns"
 import Link from "next/link"
 
+export const dynamic = 'force-dynamic';
 interface PublicationProps {
   data: Publication[]
 }

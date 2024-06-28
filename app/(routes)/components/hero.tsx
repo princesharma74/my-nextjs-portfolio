@@ -13,7 +13,7 @@ import { downloadFile } from "@/lib/actions";
 import { useDownloadState } from "@/hooks/use-download-state";
 import { set } from "date-fns";
 
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
 interface HeroProps {
     data: any
@@ -60,10 +60,10 @@ const Hero : React.FC<HeroProps> = ({
                 </h1>
                 <p className="px-6 md:px-0">{introduction}</p>
               </div>
-              <div className="flex flex-wrap gap-2 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-auto gap-2 items-center px-6">
                 <Button variant={"secondary"} className="rounded-full" data-cal-namespace="" data-cal-link="princesharma74/book-an-appointment" data-cal-config='{"layout":"month_view"}'
                 >
-                <span className="flex items-center gap-2">Contact me</span>
+                Contact me
                 </Button>
                 <Button className="rounded-full" disabled={loading} onClick={onDownload}>
                   {loading ? 'Downloading...' : 'Download Resume'}
