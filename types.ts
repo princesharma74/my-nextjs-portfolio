@@ -89,3 +89,23 @@ export interface Template {
   images: string[]
   price: 5,
 }
+
+export interface PublicationBase{ 
+  collectionId: string,
+  collectionName: string,
+  id: string,
+  title: string,
+  info: string,
+  url: string,
+  published: Date
+}
+
+export interface Publication {
+  collectionId: string,
+  collectionName: string,
+  id: string,
+  title: string,
+  info: string,
+  url: string,
+  published: Date
+}

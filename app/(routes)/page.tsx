@@ -5,11 +5,12 @@ import pb from '@/lib/pb';
 import { useEffect, useState } from 'react';
 import Hero from './components/hero';
 import Pocketbase from 'pocketbase'; 
-import { TemplateBase, ExperienceBase, ProjectBase, SocialBase } from '@/types';
+import { TemplateBase, ExperienceBase, ProjectBase, SocialBase, PublicationBase } from '@/types';
 import { Templates } from './components/templates';
 import { Socials } from './components/socials';
 import { ExperienceSection } from './components/experiences';
 import { Projects } from './components/projects';
+import { PublicationSection } from './components/publications';
 
 // to avoid caching...
 export const dynamic = 'force-dynamic';
@@ -103,6 +104,18 @@ export default async function Home() {
     }
   })
 
+  // console.log(me.expand?.publications)
+  const publications = me.expand && me.expand.publications.map(( publication : PublicationBase ) => {
+    return {
+      id: publication.id,
+      title: publication.title,
+      info: publication.info,
+      published: publication.published,
+      url: publication.url
+    }
+  }
+)
+
 
   return (
     <>
@@ -110,6 +123,7 @@ export default async function Home() {
         <Hero data={info}/>
         <Projects data={projects}/>
         <ExperienceSection data={experiences}/>
+        <PublicationSection data={publications}/>
         <Templates data={templates}/>
         <Socials data={socials}/>
       <Footer/>
