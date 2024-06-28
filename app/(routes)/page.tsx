@@ -120,6 +120,20 @@ export default async function Home() {
 
   return (
     <>
+    		<div className="area">
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+		</div>
       <Navbar/>
         <Hero data={info}/>
         <Projects data={projects}/>
