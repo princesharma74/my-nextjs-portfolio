@@ -1,75 +1,51 @@
-'use client'
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface TypewriterProps {
   dataText: string[];
   className?: string;
 }
 
-class TxtType {
-  toRotate: string[];
-  el: HTMLSpanElement;
-  loopNum: number;
-  period: number;
-  txt: string;
-  isDeleting: boolean;
-
-  constructor(el: HTMLSpanElement, toRotate: string[], period: number) {
-    this.toRotate = toRotate;
-    this.el = el;
-    this.loopNum = 0;
-    this.period = parseInt(period.toString(), 10) || 2000;
-    this.txt = '';
-    this.isDeleting = false;
-    this.tick();
-  }
-
-  tick() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
-
-    if (this.isDeleting) {
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-    var delta = 100; // Adjust the value to control the speed of the animation
-
-    if (this.isDeleting) {
-      delta /= 2;
-    }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-      delta = this.period;
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
-      this.loopNum++;
-      delta = 500;
-    }
-
-    setTimeout(() => {
-      this.tick();
-    }, delta);
-  }
-}
-
 const Typewriter: React.FC<TypewriterProps> = ({ dataText, className }) => {
-  const el = useRef<HTMLSpanElement>(null);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const typingSpeed = 100; // Adjust typing speed here (milliseconds)
+  const deletingSpeed = 50; // Adjust deleting speed here (milliseconds)
+  const pauseTime = 1000; // Pause time between typing and deleting (milliseconds)
+
+  const textElement = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (el.current) {
-      setTimeout(() => {
-        new TxtType(el.current!, dataText, 2000);
-      }, 0);
-    }
-  }, [dataText]);
+    let timer: NodeJS.Timeout;
+
+    const handleTyping = () => {
+      const currentText = dataText[loopNum];
+      setText(
+        isDeleting
+          ? currentText.substring(0, text.length - 1)
+          : currentText.substring(0, text.length + 1)
+      );
+
+      if (!isDeleting && text === currentText) {
+        timer = setTimeout(() => setIsDeleting(true), pauseTime);
+      } else if (isDeleting && text === '') {
+        setLoopNum((loopNum + 1) % dataText.length);
+        setIsDeleting(false);
+      }
+
+      const speed = isDeleting ? deletingSpeed : typingSpeed;
+      timer = setTimeout(handleTyping, speed);
+    };
+
+    timer = setTimeout(handleTyping, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, dataText]);
 
   return (
-    <span className={`border-r-2 ${className}`} ref={el}></span>
+    <span className={`border-r-2 ${className}`} ref={textElement}>
+      {text}
+    </span>
   );
 };
 
