@@ -128,8 +128,6 @@ html{
 -- Start BackGround Animation 
 */
 .area {
-	background: #ffffff;
-	background: -webkit-linear-gradient(to left, #ffffff, #959597);
 	width: 100%;
 	height: 100vh;
 	position: absolute;
