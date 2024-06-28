@@ -12,6 +12,7 @@ import { getCalApi } from "@calcom/embed-react";
 import { downloadFile } from "@/lib/actions";
 import { useDownloadState } from "@/hooks/use-download-state";
 import { set } from "date-fns";
+import { useRouter } from "next/navigation";
 
 export const dynamic = 'force-dynamic';
 
@@ -25,6 +26,7 @@ const Hero : React.FC<HeroProps> = ({
 
   const [loading, setLoading] = useState(false);
   const { isOpen, onOpen, onClose } = useDownloadState();
+  const router = useRouter();
 
   useEffect(()=>{
 	  (async function () {
@@ -35,7 +37,8 @@ const Hero : React.FC<HeroProps> = ({
   
   const onDownload = async () => {
     setLoading(true);
-    await downloadFile(resume);
+    // await downloadFile(resume);
+    router.push('/prince_sharma_resume.pdf')
     setLoading(false);
   }
 
@@ -65,8 +68,11 @@ const Hero : React.FC<HeroProps> = ({
                 >
                 Contact me
                 </Button>
-                <Button className="rounded-full" disabled={loading} onClick={onDownload}>
+                {/* <Button className="rounded-full" disabled={loading} onClick={onDownload}>
                   {loading ? 'Downloading...' : 'Download Resume'}
+                </Button> */}
+                <Button className="rounded-full" disabled={loading} onClick={onDownload}>
+                  {loading ? 'Opening...' : 'View Resume'}
                 </Button>
               </div>
             </Container>
