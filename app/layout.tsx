@@ -7,7 +7,7 @@ import { ModalProvider } from "@/providers/modal-providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Prince Sharma",
+  title: "Prince Sharma - A full-stack developer, Notion Consultant and a freelancer",
   description: "A full-stack developer and a freelancer based in India",
 };
 
