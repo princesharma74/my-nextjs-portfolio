@@ -66,7 +66,7 @@ const Hero : React.FC<HeroProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-auto gap-2 items-center px-6">
                 <Button variant={"secondary"} className="rounded-full" data-cal-namespace="" data-cal-link="princesharma74/book-an-appointment" data-cal-config='{"layout":"month_view"}'
                 >
-                Contact me
+                Let&apos;s Chat
                 </Button>
                 {/* <Button className="rounded-full" disabled={loading} onClick={onDownload}>
                   {loading ? 'Downloading...' : 'Download Resume'}
