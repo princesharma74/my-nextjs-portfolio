@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import Link from "next/link"
