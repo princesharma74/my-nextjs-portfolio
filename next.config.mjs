@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // output: 'export',
-    // distDir: 'princesharma74.github.io',
+    output: 'export',
+    distDir: 'princesharma74.github.io',
     images: {
         // unoptimized: true,
         domains: [
